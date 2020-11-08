@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- 
+  ・html
+　表示に必要な「要素」を記載する。
+・js(JavaScript)
+　各ボタンやテキストの「動作」を記載する。
+・css
+　各要素の「レイアウト」を記載する。 
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <!-- 選択ボタン -->
+    <ul>
+      <li id="gu_btn">グー</li>
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+    </ul>
+    <!-- 結果表示 -->
+    <div id="cheat_mode_state"></div><!-- チートモードかどうか出力する場所だけ作っておく -->
+    <div id="computer_hand">コンピュータの出した手は？</div>
+    <div id="judgment">結果は？</div>
+
+    <!-- チートモードボタン(隠しボタンにしたい→隠しつつ実行するには？) -->
+    <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" onclick="cheat_mode_enter1"> -->
+    <div>
+      <!-- <visibility:hidden> -->
+      <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" style="visibility:hidden">
+      <!-- </visibility:hidden> -->
+    </div>
+    <!-- チートモード時の (事前に相手の出す手を知る)-->
+    <!--  -->
+    <!-- 
+     -->
+    <!-- JavaScriptでやる？ここにスペースだけ準備しておく？ -->
+    <display:none>
+      <input type="button" value="コンピュータの手" name="cheat_mode_jizen_button" id="cheat_mode_jizen">
+    </display:none>
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- janken.js にJaca Script処理を書き込み -->
+  <script src="js/janken.js"></script>
+
+  <!-- <script>
+    $(function () {
+      //ここに処理を追加
+    });
+  </script> -->
+
+</body>
+
+</html>
