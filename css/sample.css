@@ -52,3 +52,8 @@ li:hover{
     background: #0066CC;
     color:#fff;
 }
+
+
+/* チートモードの事前を最初は非表示(動的な表示/非表示はJavaScriptで行う) */
+#cheat_jizen_button {visibility: hidden;}
+

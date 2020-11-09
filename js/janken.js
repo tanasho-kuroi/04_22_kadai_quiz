@@ -96,8 +96,11 @@ $('#cheat_mode').on('click', function () {
     $('#judgment').html("結果は？");
     if (cheat_mode_value == 0) {
         $('#cheat_mode_state').html("");
+        document.getElementById('cheat_jizen_button').style.visibility = 'hidden';//事前ボタンの動的な表示/非表示
     } else if (cheat_mode_value == 1) {
         $('#cheat_mode_state').html("チートモード！！");
+        document.getElementById('cheat_jizen_button').style.visibility = 'visible';
+
     }
 })
 
@@ -108,6 +111,7 @@ $('#cheat_mode_jizen').on('click', function () {
     console.log(janken_text);
     JankenJizenOutput(janken_text);
 })
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 

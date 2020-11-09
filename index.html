@@ -37,25 +37,25 @@
     <!-- チートモードボタン(隠しボタンにしたい→隠しつつ実行するには？) -->
     <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" onclick="cheat_mode_enter1"> -->
     <div>
-      <!-- <visibility:hidden> -->
-      <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" style="visibility:hidden">
-      <!-- </visibility:hidden> -->
+      <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" style="visibility:hidden"> -->
+      <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode">
     </div>
     <!-- チートモード時の (事前に相手の出す手を知る)-->
     <!--  -->
     <!-- 
      -->
     <!-- JavaScriptでやる？ここにスペースだけ準備しておく？ -->
-    <display:none>
+    <div id="cheat_jizen_button">
       <input type="button" value="コンピュータの手" name="cheat_mode_jizen_button" id="cheat_mode_jizen">
-    </display:none>
+    </div>
   </main>
-
-  <footer>フッター</footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- janken.js にJaca Script処理を書き込み -->
   <script src="js/janken.js"></script>
+
+
+  <footer>フッター</footer>
 
   <!-- <script>
     $(function () {
