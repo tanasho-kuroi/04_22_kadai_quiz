@@ -1,7 +1,7 @@
 # じゃんけん真剣勝負
 
 ##デプロイ先
-https://tanasho-kuroi.github.io/01_22_janken/
+https://tanasho-kuroi.github.io/02_22_janken/
 
 
 ## プロダクトの紹介
