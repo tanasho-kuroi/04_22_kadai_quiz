@@ -19,13 +19,13 @@
 
 <body>
   <header>
-    <div class="title-banner" id="page-top">
+    <div class="title-banner title-banner1" id="page-top">
       <div class="secret">
-        <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode">
+        <input type="button" value="チート" name="cheat_mode_button" id="cheat_mode">
       </div>
-
-      <h1 class="main-title titles">真剣じゃんけん！</h1>
-      <p class="sub-title titles">たかがジャンケン？<br>ジャンケンはいつでも真剣勝負だ！！</p>
+      <!-- メインタイトルとサブタイトル ノーマル/チートで動的に切り替えるので、内容はJSにて -->
+      <h1 id="main-title"></h1>
+      <p id="sub-title"></p>
     </div>
   </header>
 
@@ -42,26 +42,13 @@
     <div id="judgment">結果は？</div>
 
 
-
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!--　(11/10)次はここ！チートモードボタンを隠しつつクリックできる様にしたい！！  -->
-    <!---->
-
-    <!-- チートモードボタン(隠しボタンにしたい→隠しつつ実行するには？) -->
-    <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" onclick="cheat_mode_enter1"> -->
-    <div>
-      <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode"> -->
-    </div>
-
     <!-- チートモード時の (事前に相手の出す手を知る)-->
-    <!-- ボタン隠しについてCSSで初期設定、JavaScript動的表示/非表示設定を行った -->
+    <!-- ボタン隠しについてCSSで初期設定、JSにて動的表示/非表示設定を行った -->
     <div id="cheat_jizen_button">
       <input type="button" value="コンピュータの手" name="cheat_mode_jizen_button" id="cheat_mode_jizen">
     </div>
   </main>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- janken.js にJaca Script処理を書き込み -->
@@ -69,7 +56,6 @@
 
 
   <footer>フッター</footer>
-
   <!-- <script>
     $(function () {
       //ここに処理を追加

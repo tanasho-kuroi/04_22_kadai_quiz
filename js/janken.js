@@ -35,13 +35,6 @@ const JankenJudgement = (janken_value, janken_value_com) => {
     } else if (janken_versus == 0) {
         janken_result = draw_text;
     }
-    // if (janken_value - janken_value_com == -1 || janken_value - janken_value_com == 2) {
-    //     janken_result = win_text;
-    // } else if (janken_value - janken_value_com == -2 || janken_value - janken_value_com == 1) {
-    //     janken_result = lose_text;
-    // } else if (janken_value - janken_value_com == 0) {
-    //     janken_result = draw_text;
-    // }
     return janken_result;
 }
 
@@ -89,6 +82,11 @@ const JankenProcessCheat = (janken_value, janken_value_com, janken_result) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 // チートモードのクリック判定
 let cheat_mode_value = 0;
+let main_title_text = "真剣じゃんけん！";
+let sub_title_text = "たかがジャンケン？ジャンケンはいつでも真剣勝負だ！！";
+$('#main-title').html(main_title_text);
+$('#sub-title').html(sub_title_text);
+
 $('#cheat_mode').on('click', function () {
     cheat_mode_value = cheat_mode_value ^ 1;
     console.log(cheat_mode_value);
@@ -97,11 +95,20 @@ $('#cheat_mode').on('click', function () {
     if (cheat_mode_value == 0) {
         $('#cheat_mode_state').html("");
         document.getElementById('cheat_jizen_button').style.visibility = 'hidden';//事前ボタンの動的な表示/非表示
+        document.getElementById('page-top').classList.remove('title-banner2');
+        document.getElementById('page-top').classList.add('title-banner1');
+        main_title_text = "真剣じゃんけん！";
+        sub_title_text = "たかがジャンケン？ジャンケンはいつでも真剣勝負だ！！";
     } else if (cheat_mode_value == 1) {
         $('#cheat_mode_state').html("チートモード！！");
         document.getElementById('cheat_jizen_button').style.visibility = 'visible';
-        // $('#cheat_mode_state');
+        document.getElementById('page-top').classList.remove('title-banner1');
+        document.getElementById('page-top').classList.add('title-banner2');
+        main_title_text = "後出しじゃんけん！";
+        sub_title_text = "たかがジャンケンだろ？ムキになるなよ";
     }
+    $('#main-title').html(main_title_text);
+    $('#sub-title').html(sub_title_text);
 })
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,11 +119,9 @@ $('#cheat_mode_jizen').on('click', function () {
     JankenJizenOutput(janken_text);
 })
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 //0~2の乱数を出し、それが グー/チョキ/パー となる様に割り当てる
-//グーチョキパー押下時の処理をそれぞれ記載
 //ノーマルモード時：コンピュータの手と結果の出力
 //チートモード時：結果の出力(コンピュータの手は事前に知るから)
 

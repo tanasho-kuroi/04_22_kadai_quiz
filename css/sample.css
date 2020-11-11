@@ -54,9 +54,21 @@ li:hover{
     color:#fff;
 }
 
-/* ジャンケンタイトルの背景画像 */
+
+/* ジャンケンタイトルのtext */
 .title-banner{
-	background: peru url(../img/janken_boys.png) no-repeat center top;
+	/* background: peru url(../img/janken_boys1.png) no-repeat center top;
+	background-attachment: unset;
+	background-size: cover;
+	/*min-height: 70vh;/**/
+	color: white; 
+    text-align: center;
+    height: 350px;
+    pointer-events: none;
+}
+/* ジャンケンタイトルの背景画像(ノーマル) */
+.title-banner1{
+	background: peru url(../img/janken_boys1.png) no-repeat center top;
 	background-attachment: unset;
 	background-size: cover;
 	/*min-height: 70vh;/**/
@@ -65,6 +77,26 @@ li:hover{
     height: 350px;
     pointer-events: none;
 }
+/* .on {
+  opacity: 1;
+}
+.off {
+  opacity: 0;
+} */
+
+
+/* ジャンケンタイトルの背景画像(チート) */
+.title-banner2{
+	background: peru url(../img/janken_boys2.png) no-repeat center top;
+	background-attachment: unset;
+	background-size: cover;
+	/*min-height: 70vh;/**/
+	color: white;
+    text-align: center;
+    height: 350px;
+    pointer-events: none;
+}
+
 
 /* チートモード切替　隠しボタン */
 .secret {
@@ -75,14 +107,12 @@ li:hover{
     left: 95px;
     width: 35px;
     height: 35px;
-    background: yellow;
+    background: rgba(226, 170, 67, 0.747);
     border-radius: 25px;
     position: absolute;
     opacity: 0;
     box-shadow: 2px 2px 2px grey;
-
     pointer-events: fill;
-
 }
 
 .secret:hover{
@@ -91,36 +121,20 @@ li:hover{
 .secret input{
     opacity: 0;
 }
-
-/* .message {
-    opacity: 0;
-    border-radius: 20px;
-    background: lightgray;
-    padding: 5px 0 0 35px;
-    width: 200px;
-    height: 80px;
-    top: -200px;
-    left: 200px;
-    position: absolute;   
-    font-family: Arial;
-    font-weight: bold;
-    font-size: 30px;
-}
-
+/*  
 .secret input:single-button ~ .message {
     opacity: 1;
 } */
 
 /* タイトル・サブタイトルのフォントや位置 */
-
-.main-title{
+#main-title{
     font-size: 64px;
-    padding-top: 40px;/*うまくページ一番上にフィットする方法は？*/
+    padding-top: 40px;
 }
 
-.sub-title{
+#sub-title{
     font-size: 40px;
-    padding-top: 30px;/*うまくページ一番上にフィットする方法は？*/
+    padding-top: 30px;
 }
 
 /* ジャンケンの手の画像 */
