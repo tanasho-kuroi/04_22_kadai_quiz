@@ -100,7 +100,7 @@ $('#cheat_mode').on('click', function () {
     } else if (cheat_mode_value == 1) {
         $('#cheat_mode_state').html("チートモード！！");
         document.getElementById('cheat_jizen_button').style.visibility = 'visible';
-
+        // $('#cheat_mode_state');
     }
 })
 

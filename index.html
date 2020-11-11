@@ -19,32 +19,45 @@
 
 <body>
   <header>
-    <h1>じゃんけん</h1>
+    <div class="title-banner" id="page-top">
+      <div class="secret">
+        <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode">
+      </div>
+
+      <h1 class="main-title titles">真剣じゃんけん！</h1>
+      <p class="sub-title titles">たかがジャンケン？<br>ジャンケンはいつでも真剣勝負だ！！</p>
+    </div>
   </header>
 
   <main>
     <!-- 選択ボタン -->
     <ul>
-      <li id="gu_btn">グー</li>
-      <li id="cho_btn">チョキ</li>
-      <li id="par_btn">パー</li>
+      <li id="gu_btn"> <img class="hand" src="img/gu.png" alt="gu_hand"> </li>
+      <li id="cho_btn"><img class="hand" src="img/choki.png" alt="choki_hand"></li>
+      <li id="par_btn"><img class="hand" src="img/pa.png" alt="pa_hand"></li>
     </ul>
     <!-- 結果表示 -->
     <div id="cheat_mode_state"></div><!-- チートモードかどうか出力する場所だけ作っておく -->
     <div id="computer_hand">コンピュータの出した手は？</div>
     <div id="judgment">結果は？</div>
 
+
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--　(11/10)次はここ！チートモードボタンを隠しつつクリックできる様にしたい！！  -->
+    <!---->
+
     <!-- チートモードボタン(隠しボタンにしたい→隠しつつ実行するには？) -->
     <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" onclick="cheat_mode_enter1"> -->
     <div>
-      <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode" style="visibility:hidden"> -->
-      <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode">
+      <!-- <input type="button" value="チートモード" name="cheat_mode_button" id="cheat_mode"> -->
     </div>
+
     <!-- チートモード時の (事前に相手の出す手を知る)-->
-    <!--  -->
-    <!-- 
-     -->
-    <!-- JavaScriptでやる？ここにスペースだけ準備しておく？ -->
+    <!-- ボタン隠しについてCSSで初期設定、JavaScript動的表示/非表示設定を行った -->
     <div id="cheat_jizen_button">
       <input type="button" value="コンピュータの手" name="cheat_mode_jizen_button" id="cheat_mode_jizen">
     </div>
