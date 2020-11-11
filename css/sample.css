@@ -57,10 +57,6 @@ li:hover{
 
 /* ジャンケンタイトルのtext */
 .title-banner{
-	/* background: peru url(../img/janken_boys1.png) no-repeat center top;
-	background-attachment: unset;
-	background-size: cover;
-	/*min-height: 70vh;/**/
 	color: white; 
     text-align: center;
     height: 350px;
@@ -103,8 +99,8 @@ li:hover{
     display: flex;/*視覚的なボタンと実際のボタンの位置をセンター揃えにするため*/
     text-align: center;
     justify-content: center;
-    top: 195px;
-    left: 95px;
+    top: 0px;
+    left: 0px;
     width: 35px;
     height: 35px;
     background: rgba(226, 170, 67, 0.747);
