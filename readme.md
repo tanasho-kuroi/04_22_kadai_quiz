@@ -1,6 +1,6 @@
 # じゃんけん真剣勝負
 
-##デプロイ先
+## デプロイ先
 https://tanasho-kuroi.github.io/02_22_janken/
 
 

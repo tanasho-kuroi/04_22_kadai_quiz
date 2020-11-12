@@ -63,44 +63,43 @@ li:hover{
     pointer-events: none;
 }
 /* ジャンケンタイトルの背景画像(ノーマル) */
+/* ウィンドウサイズに影響されないの、結構難しそう。。。 */
 .title-banner1{
-	background: peru url(../img/janken_boys1.png) no-repeat center top;
-	background-attachment: unset;
-	background-size: cover;
+    background: peru url(../img/janken_boys1.png) no-repeat ;
+    background-position: center center;
+	background-attachment: scroll;/*localとの違いがわからない。画像自体がスクロールできるときに違いがでる？*/
+    /* fixedのときは、background-originが無視されるらしい */
+    background-origin: border-box;
+    /* background-size: 1200px 300px; */
+    background-size: contain;
 	/*min-height: 70vh;/**/
 	color: white;
     text-align: center;
-    height: 350px;
+    height: 300px;
     pointer-events: none;
 }
-/* .on {
-  opacity: 1;
-}
-.off {
-  opacity: 0;
-} */
 
 
 /* ジャンケンタイトルの背景画像(チート) */
 .title-banner2{
-	background: peru url(../img/janken_boys2.png) no-repeat center top;
-	background-attachment: unset;
-	background-size: cover;
+	background: peru url(../img/janken_boys2.png) no-repeat center center;
+    background-attachment: scroll;
+    background-origin: border-box;
+	background-size: contain;
 	/*min-height: 70vh;/**/
 	color: white;
     text-align: center;
-    height: 350px;
+    height: 300px;
     pointer-events: none;
 }
-
 
 /* チートモード切替　隠しボタン */
 .secret {
     display: flex;/*視覚的なボタンと実際のボタンの位置をセンター揃えにするため*/
     text-align: center;
     justify-content: center;
-    top: 0px;
-    left: 0px;
+    top: 0%;
+    left: 0%;
     width: 35px;
     height: 35px;
     background: rgba(226, 170, 67, 0.747);
@@ -110,6 +109,14 @@ li:hover{
     box-shadow: 2px 2px 2px grey;
     pointer-events: fill;
 }
+
+/* 表示・非表示切り替え用クラス(ボツ) */
+/* .on {
+  opacity: 1;
+}
+.off {
+  opacity: 0;
+} */
 
 .secret:hover{
     opacity: 1;
