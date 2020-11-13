@@ -55,51 +55,46 @@ li:hover{
 }
 
 
-/* ジャンケンタイトルのtext */
+/* ジャンケンタイトルのtextと背景画像共通*/
 .title-banner{
 	color: white; 
     text-align: center;
     height: 350px;
     pointer-events: none;
+	color: white;
+    text-align: center;
+    pointer-events: none;
+    height: 300px;
+    width: 960px;
+    margin 0;
+    padding 0;
 }
 /* ジャンケンタイトルの背景画像(ノーマル) */
 /* ウィンドウサイズに影響されないの、結構難しそう。。。 */
 .title-banner1{
-    background: peru url(../img/janken_boys1.png) no-repeat ;
-    background-position: center center;
-	background-attachment: scroll;/*localとの違いがわからない。画像自体がスクロールできるときに違いがでる？*/
+    background: peru url(../img/janken_boys1.png) no-repeat center center;
+	/* background-attachment: scroll;/*localとの違いがわからない。画像自体がスクロールできるときに違いがでる？*/
     /* fixedのときは、background-originが無視されるらしい */
+	background-attachment: scroll;/*localとの違いがわからない。画像自体がスクロールできるときに違いがでる？*/
     background-origin: border-box;
-    /* background-size: 1200px 300px; */
+	background-size: contain;
     background-size: contain;
-	/*min-height: 70vh;/**/
-	color: white;
-    text-align: center;
-    height: 300px;
-    pointer-events: none;
 }
-
-
 /* ジャンケンタイトルの背景画像(チート) */
 .title-banner2{
 	background: peru url(../img/janken_boys2.png) no-repeat center center;
     background-attachment: scroll;
     background-origin: border-box;
 	background-size: contain;
-	/*min-height: 70vh;/**/
-	color: white;
-    text-align: center;
-    height: 300px;
-    pointer-events: none;
+    background-size: contain;
 }
-
 /* チートモード切替　隠しボタン */
 .secret {
     display: flex;/*視覚的なボタンと実際のボタンの位置をセンター揃えにするため*/
     text-align: center;
     justify-content: center;
-    top: 0%;
-    left: 0%;
+    top: 240px;
+    left: 240px;
     width: 35px;
     height: 35px;
     background: rgba(226, 170, 67, 0.747);
@@ -110,13 +105,59 @@ li:hover{
     pointer-events: fill;
 }
 
-/* 表示・非表示切り替え用クラス(ボツ) */
-/* .on {
-  opacity: 1;
+/* チートモード突入時のポップアップ */
+.popup{
+    position: fixed;
+    left: 15%;
+    top: 15%;
+    width: 150px;
+    height: 150px;
+    z-index: 9999;
+    opacity: 0;/*最初は透明度100％、(opacityだけだとクリックイベントなどは有効)*/
+    visibility: hidden;/*最初は非表示(クリックイベントもなし、領域は確保)*/
+    transition: .6s;
 }
-.off {
-  opacity: 0;
-} */
+.popup.is-show{
+    opacity: 1;
+    visibility: visible;
+}
+.popup-inner img{
+    width: 100%;
+}/* ここを.popupと分けている意味は？ */
+.close-btn {
+    position: absolute;
+    /* right: 0;
+    top: 0; */
+    width: 600px;
+    height: 400px;
+    line-height: 150px;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.close-btn i {
+    font-size: 64px;
+    color: #333;
+}
+.black-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    z-index: 11;
+    cursor: pointer;
+}
+.popup-text{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    font-size: 64px;
+    color:red;
+}
+
+
 
 .secret:hover{
     opacity: 1;
@@ -124,21 +165,45 @@ li:hover{
 .secret input{
     opacity: 0;
 }
-/*  
-.secret input:single-button ~ .message {
-    opacity: 1;
-} */
+
+/* チートモード時のコンピュータの手を知るボタン */
+#cheat_jizen_button{
+    position: relative;
+    justify-content: center;
+    left: 20%;
+}
+#cheat_mode_jizen{
+    border-radius: 50%;
+    line-height: 200px;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    -webkit-box-shadow: 0 5px 0 #e6d900;
+    box-shadow: 0 5px 0 #e6d900;
+    font-size: 24px;
+}    
+#cheat_mode_jizen:hover{
+    -webkit-transform: translate(0, 3px);
+    transform: translate(0, 3px);
+    -webkit-box-shadow: 0 2px 0 #e6d900;
+    box-shadow: 0 2px 0 #e6d900;
+}
 
 /* タイトル・サブタイトルのフォントや位置 */
 #main-title{
     font-size: 64px;
     padding-top: 40px;
 }
-
 #sub-title{
     font-size: 40px;
     padding-top: 30px;
 }
+
+body{
+    margin 0;
+    padding 0;
+}
+
 
 /* ジャンケンの手の画像 */
 .hand{

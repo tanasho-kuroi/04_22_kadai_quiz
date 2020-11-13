@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/sample.css">
-  <title>じゃんけん</title>
+  <title>真剣じゃんけん！</title>
 </head>
 
 <body>
@@ -28,6 +28,17 @@
       <p id="sub-title"></p>
     </div>
   </header>
+
+  <!-- チートモード突入時のポップアップ(画像とボタン) -->
+  <div class="popup" id="js-popup">
+    <div class="popup-inner">
+      <div class="close-btn" id="js-close-btn"><i class="fas fas-times"></i>
+        <a href="#"><img src="img/janken_boys2.png" alt="PopupImage"></a>
+        <p class="popup-text" id="js-popup-text">勝つことが全て</p>
+      </div>
+    </div>
+  </div>
+
 
   <main>
     <!-- 選択ボタン -->
@@ -55,7 +66,7 @@
   <script src="js/janken.js"></script>
 
 
-  <footer>フッター</footer>
+  <!-- <footer>フッター</footer> -->
   <!-- <script>
     $(function () {
       //ここに処理を追加
