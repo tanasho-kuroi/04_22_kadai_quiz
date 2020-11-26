@@ -18,35 +18,68 @@
 
    <body>
       <header>
-         <div class="title-banner title-banner1" id="page-top">
-            <div class="secret">
-               <input type="button" value="チー" name="cheat_mode_button" id="cheat_mode" />
-            </div>
+         <div class="title-banner title-banner2" id="page-top">
+            <!-- <div class="secret">
+               <input type="button" value="隠し" name="cheat_mode_button" id="cheat_mode" />
+            </div> -->
             <!-- メインタイトルとサブタイトル -->
-            <h1 id="main-title">☆カップル・夫婦のためのクイズ☆</h1>
-            <p id="sub-title">〜絶対に使用しないでください〜</p>
+            <h1 id="main-title">☆回答コーナー(2)☆</h1>
+            <p id="sub-title">〜よーく考えてご回答ください〜</p>
          </div>
       </header>
 
-      <main id="top_page_main">
-         <!-- 一人目か二人目かの分岐用 -->
+      <!-- ポップアップ(画像とボタン) -->
+      <!-- <div class="popup" id="js-popup">
+    <div class="popup-inner">
+      <div class="close-btn" id="js-close-btn"><i class="fas fas-times"></i>
+        <a href="#"><img src="img/janken_boys2.png" alt="PopupImage"></a>
+        <p class="popup-text" id="js-popup-text">勝つことが全て</p>
+      </div>
+    </div>
+  </div> -->
 
-         <!-- 「はじめる」ボタン -->
+      <main>
+         <!-- 結果表示 -->
+         <!-- 出力する場所だけ作っておく -->
+         <!-- <div id="cheat_mode_state"></div>
+    <div id="computer_hand">コンピュータの出した手は？</div>
+    <div id="judgment">結果は？</div> -->
+
+         <!-- ボタン隠しについてCSSで初期設定、JSにて動的表示/非表示設定を行った -->
+         <!-- <div id="cheat_jizen_button">
+      <input type="button" value="コンピュータの手" name="cheat_mode_jizen_button" id="cheat_mode_jizen">
+    </div> -->
+
+         <!-- 回答入力場所 -->
+         <h3>☆問題＆回答☆</h3>
+         <ul>
+            <label for="name">問１</label>
+            <p id="question1" class="question">二人が付き合った記念日は？</p>
+            <textarea name="" id="answer1" cols="40" rows="3"></textarea>
+         </ul>
+         <ul>
+            <label for="name">問２</label>
+            <p id="question2" class="question">付き合う際の告白の言葉は？</p>
+            <textarea name="" id="answer2" cols="40" rows="3"></textarea>
+         </ul>
+         <ul>
+            <label for="name">問３</label>
+            <p id="question3" class="question">初めて出会った日のことを君は今も覚えていますか？</p>
+            <textarea name="" id="answer3" cols="40" rows="3"></textarea>
+         </ul>
+
+         <!-- Submit ボタン -->
+         <button id="send_button">OK！回答提出！</button>
+
+         <!-- 「戻る」ボタン -->
          <div id="start_button">
             <!-- <input type="button" value="START!" name="start_button_push" id="push_start"> -->
-            <!-- <button onclick="href='';start_button_click()" id="page_transfer">START!</button> -->
-            <!-- <button onclick="location.href='answer1.html';start_button_click()" id="page_transfer">
-               START!
-            </button> -->
-
-            <button onclick="location.href='answer1.html';start_button_click()" id="page_transfer1">
-               START!(一人目)
+            <button onclick="location.href='index.html'" id="page_transfer_return">
+               page-topに戻る
             </button>
-            <button onclick="location.href='answer2.html';start_button_click()" id="page_transfer2">
-               START!(二人目)
-            </button>
-            <!-- <a href="answer1.html" id="page_transfer">START!!</a> -->
          </div>
+
+         <p id="output"></p>
       </main>
 
       <!--  -->
