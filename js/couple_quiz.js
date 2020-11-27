@@ -59,51 +59,85 @@ function start_button_click() {
 
 // 送信ボタンクリック時にデータを送信する処理
 $('#send_button').on('click', function () {
-   const data = {
-      answer1: $('#answer1').val(), //Box内の値を取得
-      answer2: $('#answer2').val(), //Box内の値を取得
-      answer3: $('#answer3').val(), //Box内の値を取得
+   db.doc().set({
+      keyword: $('#aikotoba_input').val(), //Box内の値を取得,これをwhereに使う
+      answer1: $('#answer1').val(), //Box内の値を取得,回答
+      answer2: $('#answer2').val(), //Box内の値を取得,回答
+      answer3: $('#answer3').val(), //Box内の値を取得,回答
       time: firebase.firestore.FieldValue.serverTimestamp(),
-   };
-   db.add(data);
+   });
+   //    db.add(data);
+   //    $('#aikotoba_input').val('');
    //    $('#answer1').val('');
    //    $('#answer2').val('');
    //    $('#answer3').val('');
 });
 
+// データの取得
+$('#get_button').on('click', function () {
+   //    var dataArray = [];
+   //    const getdata = {
+   //       id: doc.id, //自動で指定しているドキュメントのID
+   //       data: doc.data(), //上記IDのドキュメントの中身
+   //    };
+   //    dataArray = getdata;
+
+   // db.onSnapshot(function (querySnapshot) {
+   const getkeyword = $('#aikotoba_input').val(); //Box内の値を取得,これをwhereに使う
+
+   db.where('keyword', '==', getkeyword)
+      .get()
+      .then(function (querySnapshot) {
+         querySnapshot.forEach(function (doc) {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, '=>', doc.data());
+         });
+      });
+});
+
+// .catch(function(error) {
+//    console.log("Error getting documents:", error);
+// });
+
+// console.log(dataArray);
+// $('#output').html(dataArray);
+// $('#sub-title').html(dataArray);
+// $('#answer3').html(dataArray);
+// });
+
 // データをリアルタイムに取得する処理 必要なデータだけ取る！
 // onSnapshot:データの変更がある度に、orderBy:並び替え。time:時間で並び替え、(desc:降順。昇順はasc?)
-db.orderBy('time', 'desc').onSnapshot(function (querySnapshot) {
-   console.log(querySnapshot.docs);
-   var dataArray = []; //必要なデータだけが入った配列(リロードしても最初から入っている？)
-   console.log(dataArray);
-   querySnapshot.docs.forEach(function (doc) {
-      //querySnapshot.docsの要素数だけループ
-      const data = {
-         id: doc.id, //自動で指定しているドキュメントのID
-         data: doc.data(), //上記IDのドキュメントの中身
-      };
+// db.orderBy('time', 'desc').onSnapshot(function (querySnapshot) {
+//    console.log(querySnapshot.docs);
+//    var dataArray = []; //必要なデータだけが入った配列(リロードしても最初から入っている？)
+//    console.log(dataArray);
+//    querySnapshot.docs.forEach(function (doc) {
+//       //querySnapshot.docsの要素数だけループ
+//       const data = {
+//          id: doc.id, //自動で指定しているドキュメントのID
+//          data: doc.data(), //上記IDのドキュメントの中身
+//       };
 
-      dataArray.push(data); //dataArrayの末尾にdata追加(dataが一つのドキュメント情報、dataArrayが全てを入れた配列)
-      console.log(data);
-      console.log(dataArray);
-   });
-   var tagArray = [];
-   dataArray.forEach(function (data) {
-      //上記で取得した情報をページ上に出力するためにデータを整えるところ
-      //dataArrayの要素数だけループ
-      const tag = `
-                <li id=${data.id}>
-                  <p>${data.data.name}</p>
-                  <p>${data.data.text}</p>
+//       dataArray.push(data); //dataArrayの末尾にdata追加(dataが一つのドキュメント情報、dataArrayが全てを入れた配列)
+//       console.log(data);
+//       console.log(dataArray);
+//    });
+//    var tagArray = [];
+//    dataArray.forEach(function (data) {
+//       //上記で取得した情報をページ上に出力するためにデータを整えるところ
+//       //dataArrayの要素数だけループ
+//       const tag = `
+//                 <li id=${data.id}>
+//                   <p>${data.data.name}</p>
+//                   <p>${data.data.text}</p>
 
-                </li>
-              `;
-      //   tagArray.push(tag);
-      tagArray = tag;
-   });
-   $('#output').html(tagArray);
-});
+//                 </li>
+//               `;
+//       //   tagArray.push(tag);
+//       tagArray = tag;
+//    });
+//    $('#output').html(tagArray);
+// });
 //    <p>${convertFromFirestoreTimestampToDatetime(
 //      data.data.time.seconds
 //   )}</p>//時間情報を読める形に変換

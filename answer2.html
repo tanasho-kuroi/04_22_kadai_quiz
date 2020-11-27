@@ -53,6 +53,11 @@
          <!-- 回答入力場所 -->
          <h3>☆問題＆回答☆</h3>
          <ul>
+            <label for="name">合言葉</label>
+            <p id="aikotoba" class="c_aikotoba">合言葉は？</p>
+            <textarea name="" id="aikotoba_input" cols="40" rows="3"></textarea>
+         </ul>
+         <ul>
             <label for="name">問１</label>
             <p id="question1" class="question">二人が付き合った記念日は？</p>
             <textarea name="" id="answer1" cols="40" rows="3"></textarea>
@@ -71,6 +76,9 @@
          <!-- Submit ボタン -->
          <button id="send_button">OK！回答提出！</button>
 
+         <!-- データ取得 ボタン -->
+         <button id="get_button" class="get">答え合わせ！</button>
+
          <!-- 「戻る」ボタン -->
          <div id="start_button">
             <!-- <input type="button" value="START!" name="start_button_push" id="push_start"> -->
@@ -79,7 +87,7 @@
             </button>
          </div>
 
-         <p id="output"></p>
+         <ul id="output"></ul>
       </main>
 
       <!--  -->
