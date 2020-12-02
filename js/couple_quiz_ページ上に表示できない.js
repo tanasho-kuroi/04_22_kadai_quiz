@@ -75,35 +75,26 @@ $('#send_button').on('click', function () {
 
 // データの取得
 $('#get_button').on('click', function () {
+   //    var dataArray = [];
+   //    const getdata = {
+   //       id: doc.id, //自動で指定しているドキュメントのID
+   //       data: doc.data(), //上記IDのドキュメントの中身
+   //    };
+   //    dataArray = getdata;
+
+   // db.onSnapshot(function (querySnapshot) {
    const getkeyword = $('#aikotoba_input').val(); //Box内の値を取得,これをwhereに使う
 
    db.where('keyword', '==', getkeyword)
       .get()
       .then(function (querySnapshot) {
          querySnapshot.forEach(function (doc) {
-            console.log(doc.id);
-            console.log(doc.data());
-            const data = {
-               id: doc.id, //自動で指定しているドキュメントのID
-               data: doc.data(), //上記IDのドキュメントの中身
-            };
-            console.log(data);
-
-            //HTML文に埋め込める形にする(タグ含めて入力)
-            const tag = `
-               <li id=${data.data.keyword}>
-                  <p>${data.data.keyword}</p>
-                  <p>${data.data.answer1}</p>
-                  <p>${data.data.answer2}</p>
-                  <p>${data.data.answer3}</p>
-                </li>
-              `;
-            console.log(tag);
-            $('#output').html(tag);
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, '=>', doc.data());
+            $('#output').html(doc.data());
+            // $('#output').html(doc.data()); //なぜidは表示できるのにdataは表示出来ない？配列みたいな形式の問題？
          });
       });
-
-   //上記で取得した情報をページ上に出力するためにデータを整えるところ
 });
 
 // .catch(function(error) {
