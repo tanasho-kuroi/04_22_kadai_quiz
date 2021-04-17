@@ -84,6 +84,7 @@ $('#get_button').on('click', function () {
             console.log(doc.id);
             console.log(doc.data());
             const data = {
+               //オブジェクトに置き換えている
                id: doc.id, //自動で指定しているドキュメントのID
                data: doc.data(), //上記IDのドキュメントの中身
             };
